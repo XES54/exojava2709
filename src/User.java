@@ -1,30 +1,37 @@
 public class User {
 
     private String login;
-
     private String password;
     private int age;
-    public String email;
-
+    private Boolean administratrice;
+    public Boolean getAdministratrice() {
+        return administratrice;
+    }
 
     public User(String login, String password, int age) {
         this.login = login;
         this.password = password;
         this.age = age;
+        this.administratrice = false;
 
     }
     public User(String login, String password) {
-        this.login = "admin";
+        this.login = login;
         this.password = password;
         this.age = 18;
+        this.administratrice = true;
     }
+    public void setAdministratrice(Boolean administratrice) {
+        this.administratrice = administratrice;
+    }
+
+    public String email() {
+        return login+"@cesi.com";
+    }
+
 
     public String getLogin() {
         return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getPassword() {
@@ -43,14 +50,13 @@ public class User {
         this.age = age;
     }
 
-    public String getEmail() {
-        return email;
 
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-        this.login = login;
+    public void afficherInfo() {
+        System.out.println("Login : " + login);
+        System.out.println("Password : " + password);
+        System.out.println("Age : " + age);
+        System.out.println("Email : " + email());
+        System.out.println("admin : " + administratrice+"\n");
     }
 }
 
